@@ -51,7 +51,7 @@ atau bisa menggunakan yarn
 1. Clone repository
 
 ```textile
-git clone https://github.com/dhiyo7/Blanja-RESTful-API.git
+git clone https://github.com/Vsept17/Blanja-RESTful-API.git
 ```
 
 2. Install paket pendukung dalam `node_module`
@@ -82,7 +82,7 @@ const db = mySQL.createConnection({
 
 > untuk schema api dan documentasi silahkan klik link di bawah
 > 
-> - Conoth Guide API - [Guide API](https://github.com/dhiyo7/Blanja-RESTful-API/blob/main/SchemeAPI.md)
+> - Conoth Guide API - [Guide API](https://github.com/Vsept17/Blanja-RESTful-API/blob/main/SchemeAPI.md)
 > 
 > [BLANJA API - Publik](https://documenter.getpostman.com/view/6626576/TVewYPbM)
 
@@ -92,4 +92,4 @@ berkontribusi membuat komunitas open source menjadi tempat yang luar biasa untuk
 
 #### LICENSE
 
-Distributed under the MIT License. See [LICENSE](https://github.com/dhiyo7/Blanja-RESTful-API/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/Vsept17/Blanja-RESTful-API/blob/main/LICENSE) for more information.
