@@ -8,7 +8,7 @@
 
 Selamat datang di Blanja API. ini adalah dokumentasi api untuk eksplorasi data yang di generate dari aplikasi *[Postman](https://www.postman.com/)* .
 
-Projek ini adalah projek membuat sebuah Backend untuk halaman web [blanja.netlify.app](https://blanja.netlify.app/) yang mencakup beberapa Endpoint untuk bisa di konsumi sebagai data di bagian web *Blanja*.
+Projek ini adalah projek membuat sebuah Backend untuk halaman web [Blanja](http://107.20.36.53:3000/) yang mencakup beberapa Endpoint untuk bisa di konsumi sebagai data di bagian web *Blanja*.
 
 #### Built With
 
