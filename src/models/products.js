@@ -344,6 +344,7 @@ module.exports = {
         INNER JOIN product_colors as cl ON cl.product_id = p.id 
         LEFT JOIN categories as c ON c.id_categories = p.id 
         WHERE p.category_id = ? AND s.size_id = ? AND cl.color_id = ?`,
+        `SELECT product_id, AVG(rating) as rating FROM ratings GROUP BY product_id`,
         `SELECT * FROM product_sizes`,
         `SELECT * FROM product_colors`,
       ];
