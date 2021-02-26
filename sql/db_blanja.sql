@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 16, 2021 at 11:29 PM
+-- Generation Time: Feb 26, 2021 at 01:54 PM
 -- Server version: 5.7.33-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -46,8 +46,7 @@ INSERT INTO `address_customer` (`id_address`, `fullname`, `address`, `city`, `re
 (3, 'Cek Debug', 'Jl. Lele Dumbo', 'Pemalang', 'Jawa Tengah', '32178', 'Indonesia', 4),
 (5, 'User Gans', 'Jl. Sumbing 7', 'Pemalang', 'Jawa Tengah', '36428', 'Indonesia', 8),
 (6, 'Rizal', 'Jl. Kupang 8', 'Tegal', 'Jawa Tengah', '42421', 'Indonesia', 8),
-(7, 'Paijo', 'Jl. Semangka 7 rt 2 rw 20', 'Pemlanag', 'Jawa Tengah', '23192', 'Indonesia', 8),
-(17, 'Bambank Suryo', 'JL. tambak 5, no .15', 'Denpasar', 'Bali', '16172', 'Indonesia', 14);
+(53, 'Septian ', 'Jl. Belimbing Sayur No. 72', 'Cikarang', 'West Bekasi', '23553', 'England', 14);
 
 -- --------------------------------------------------------
 
@@ -72,6 +71,32 @@ INSERT INTO `categories` (`id_categories`, `category_name`, `category_photo`, `c
 (9, 'T-Shirt', 'https://res.cloudinary.com/devloops7/image/upload/v1605447841/newBlanja/TshirtCategory_odymmz.png', '#F67B02'),
 (13, 'Shoes', 'https://res.cloudinary.com/devloops7/image/upload/v1605447841/newBlanja/ShoesCategory_kd4uah.png', '#E31F51'),
 (14, 'Pants', 'https://res.cloudinary.com/devloops7/image/upload/v1605447840/newBlanja/PantsCategory_qz4r9h.png', '#57CD9E');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `seller` int(11) NOT NULL,
+  `buyyer` int(11) NOT NULL,
+  `chatroom` varchar(255) NOT NULL,
+  `sender` int(11) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `created_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `seller`, `buyyer`, `chatroom`, `sender`, `message`, `created_at`) VALUES
+(13, 13, 14, 'S13B14', 14, 'Haloo', '2021-02-26'),
+(14, 13, 14, 'S13B14', 13, 'Iya ada yang bisa saya bantu? ', '2021-02-26'),
+(15, 13, 14, 'S13B14', 14, 'Dimana ya? ', '2021-02-26'),
+(16, 13, 14, 'S13B14', 14, 'Halo ', '2021-02-26');
 
 -- --------------------------------------------------------
 
@@ -221,7 +246,18 @@ INSERT INTO `orders` (`id`, `transaction_code`, `total`, `user_id`, `seller_id`,
 (70, 70991, 1000000, 8, NULL, 5, 'On Process', '2021-01-29 08:57:00', '2021-01-29 08:57:00'),
 (71, 55388, 330000, 14, 13, 11, 'On Process', '2021-02-13 16:31:27', '2021-02-13 16:31:27'),
 (72, 3336, 1828000, 14, 13, 16, 'On Process', '2021-02-13 17:48:39', '2021-02-13 17:48:39'),
-(73, 2267, 145000, 14, 13, 17, 'On Process', '2021-02-13 18:03:12', '2021-02-13 18:03:12');
+(73, 2267, 145000, 14, 13, 17, 'On Process', '2021-02-13 18:03:12', '2021-02-13 18:03:12'),
+(74, 51797, 65000, 14, 13, 48, 'On Process', '2021-02-18 01:58:03', '2021-02-18 01:58:03'),
+(75, 73554, 820000, 14, NULL, 48, 'On Process', '2021-02-18 01:59:15', '2021-02-18 01:59:15'),
+(76, 73907, 125000, 14, NULL, 50, 'On Process', '2021-02-19 16:13:02', '2021-02-19 16:13:02'),
+(77, 34841, 375000, 14, NULL, 50, 'On Process', '2021-02-20 15:36:02', '2021-02-20 15:36:02'),
+(78, 91921, 2420000, 14, NULL, 50, 'On Process', '2021-02-20 15:45:52', '2021-02-20 15:45:52'),
+(79, 83730, 1210000, 14, NULL, 50, 'On Process', '2021-02-20 17:04:38', '2021-02-20 17:04:38'),
+(80, 81359, 500000, 14, NULL, 50, 'On Process', '2021-02-21 00:41:05', '2021-02-21 00:41:05'),
+(81, 92859, 1740000, 14, NULL, 50, 'On Process', '2021-02-22 00:49:39', '2021-02-22 00:49:39'),
+(82, 68928, 820000, 14, 13, 53, 'On Process', '2021-02-22 20:29:47', '2021-02-22 20:29:47'),
+(83, 88638, 240000, 14, 13, 54, 'On Process', '2021-02-23 00:27:32', '2021-02-23 00:27:32'),
+(84, 1717, 130000, 14, 13, 53, 'Delivery', '2021-02-26 13:19:48', '2021-02-26 13:35:10');
 
 -- --------------------------------------------------------
 
@@ -314,7 +350,19 @@ INSERT INTO `order_details` (`order_id`, `product_id`, `product_qty`, `sub_total
 (71, 81, 1, 255000),
 (72, 80, 1, 993000),
 (72, 74, 1, 835000),
-(73, 77, 1, 145000);
+(73, 77, 1, 145000),
+(74, 88, 1, 65000),
+(75, 89, 2, 820000),
+(76, 76, 1, 125000),
+(77, 86, 1, 375000),
+(78, 87, 2, 2420000),
+(79, 87, 1, 1210000),
+(80, 86, 1, 375000),
+(80, 85, 1, 125000),
+(81, 96, 2, 1740000),
+(82, 89, 2, 820000),
+(83, 97, 2, 240000),
+(84, 88, 2, 130000);
 
 -- --------------------------------------------------------
 
@@ -354,23 +402,18 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_name`, `category_id`, `condition_id`, `product_price`, `product_qty`, `product_desc`, `product_photo`, `user_id`, `status_product_id`, `created_at`, `updated_at`) VALUES
-(75, 'Celana Chino Pants', 14, 1, 75000, 43, 'Celana pendek chino berbahan lembut sangat cocok untuk santai', '[\"/image/1612880022250-image.webp \",\"/image/1612880022257-image.webp \",\"/image/1612880022261-image.jpg \"]', 13, 1, '2021-02-09 21:13:42', '2021-02-16 23:29:13'),
 (76, 'Jacket Boomber', 5, 1, 125000, 27, 'Rasanya Bomber Jacket bukan menjadi trend lagi tetapi sudah menjadi sebuah kultur yang tidak akan mati dimakan zaman, seperti kaos polos yang dapat dipakai di tahun berapapun namun masih terlihat trendy, bukan sesuatu yang HYPE sesaat.', '[\"/image/1613113228180-image.webp \",\"/image/1613113228188-image.webp \",\"/image/1613113228192-image.webp \",\"image/1613113228196-image.webp \"]', 13, 1, '2021-02-12 14:00:28', '2021-02-16 23:29:13'),
-(77, 'Adidas Campus', 13, 1, 755000, 30, 'Adidas Campus dibuat oleh Adidas dengan bahan berkualitas premium cocok untuk pemakaian sehari-hari kapan pun dimana punn', '[\"/image/1613375804628-image.webp \"]', 13, 1, '2021-02-15 14:56:44', '2021-02-16 23:29:13'),
+(77, 'Adidas Campus Black', 13, 1, 755000, 30, 'Adidas Campus dibuat oleh Adidas dengan bahan berkualitas premium cocok untuk pemakaian sehari-hari kapan pun dimana punn', '[\"/image/1613375804628-image.webp \"]', 13, 3, '2021-02-15 14:56:44', '2021-02-18 20:09:24'),
 (80, 'T-shirt Chiangi', 9, 1, 140000, 30, 'Kalau kamu membutuhkan kemeja yang adem, nyerap keringat, tidak panas, stretch/lentur, berarti Ciangi V2 SS ini cocok buat kamu. Selain kerahnya yang kita buat dengan tipe kerah tegak, cuttingan-nya yang slim juga membuat badan kamu lebih ramping & keren loh!\n\nPokoknya kami jamin, ketika kamu sudah merasakan kemeja Ciangi V2 SS dari Livehaf pasti tidak akan beli kemeja merk lain lagi.', '[\"/image/1613377559266-image.webp \",\"/image/1613377559270-image.webp \",\"/image/1613377559272-image.webp \"]', 13, 1, '2021-02-15 15:25:59', '2021-02-16 23:29:13'),
 (81, 'Adidas Gazelle', 13, 1, 139000, 60, 'Adidas Gazelle dibuat oleh Adidas dengan bahan berkualitas premium cocok untuk pemakaian sehari-hari kapan pun dimana pun', '[\"/image/1613394890322-image.jpg \",\"/image/1613394890325-image.webp \",\"/image/1613394890348-image.webp \"]', 13, 3, '2021-02-15 20:14:50', '2021-02-16 23:29:13'),
 (82, 'Jacket Waze Denim', 5, 2, 175000, 15, 'Tampil seperti rockstar dengan Denim Jacket terbaru dari Livehaf, pembuatannya ini memperlukan waktu yang sangat panjang, karena banyak tehnik lilitan jahit dan juga bahan denim yang berbeda seperti bahan kaos. Belum lagi proses tambahan washing yang menciptakan warna-warna unik seperti ini. Saran kami pakai dengan kancing dilepas biar terlihat COOL!', '[\"/image/1613395221305-image.webp \",\"/image/1613395221309-image.webp \",\"/image/1613395221313-image.webp \"]', 13, 3, '2021-02-15 20:20:21', '2021-02-16 23:29:13'),
-(83, 'Pants Levis', 14, 1, 230000, 25, 'Ketika waktu kemarin permintaan warna hitam sangat tinggi dan orang-orang sudah mulai bosan, kami mengeluarkan warna lain yaitu gray.. dibalut dengan bahan yang stretch tentu sangat nyaman sekali buat yang memakainya.', '[\"/image/1613395396293-image.jpg \",\"/image/1613395396299-image.jpg \",\"/image/1613395396302-image.jpg \"]', 13, 2, '2021-02-15 20:23:16', '2021-02-16 23:29:13'),
-(84, 'Chino Short Pants', 4, 1, 80000, 37, 'TIB Chino Short Pants dibuat untuk kegiatan sehari-hari kamu agar kamu tetap merasa nyaman di segala aktivitas.\nBahannya stretch dan lembut, serta kantong belakang yang dibuat tanpa kancing membuat Chino ini sangat nyaman ketika duduk, jadi tidak ada lagi keluhan kedudukkan kancing ataupun kancing nyangkut di bangku.', '[\"image/1613395552065-image.webp \",\"/image/1613395552069-image.webp \",\"/image/1613395552070-image.webp \"]', 13, 2, '2021-02-15 20:25:52', '2021-02-16 23:29:13'),
+(83, 'Pants Levis Blue', 14, 1, 230000, 25, 'Ketika waktu kemarin permintaan warna hitam sangat tinggi dan orang-orang sudah mulai bosan, kami mengeluarkan warna lain yaitu gray.. dibalut dengan bahan yang stretch tentu sangat nyaman sekali buat yang memakainya.', '[\"/image/1613395396293-image.jpg \",\"/image/1613395396299-image.jpg \",\"/image/1613395396302-image.jpg \"]', 13, 3, '2021-02-15 20:23:16', '2021-02-18 20:15:14'),
 (85, 'Long Tshirt Chiangi', 9, 1, 125000, 80, 'Kenapa kita masih menjual kaos polos yang sebenarnya anda bisa dapatkan dipasaran? Jangan salah, kaos polos dari Livehaf ini bahan nya bener-bener mahal dan premium, akibatnya kuatlitasnya sangat lembut banget dan soft abis, jika kalian sudah merasakan adem & lembutnya kaos polos dari Livehaf, pasti tidak mau memakai kaos polos brand lain lagi.', '[\"/image/1613395733105-image.webp \",\"/image/1613395733109-image.webp \",\"/image/1613395733113-image.webp \"]', 13, 3, '2021-02-15 20:28:53', '2021-02-16 23:29:13'),
 (86, 'Puma Suede Black', 13, 1, 375000, 120, 'Sepatu Puma Suede Black dengan perpaduan list putih cocok untuk kamu hangout kemana saja, dengan sole yang empuk bikin kaki kamu ngga pegel', '[\"/image/1613395902351-image.jpeg \",\"/image/1613395902358-image.jpg \",\"/image/1613395902360-image.webp \"]', 13, 3, '2021-02-15 20:31:42', '2021-02-16 23:29:13'),
 (87, 'Puma RX', 13, 1, 1210000, 10, 'Sepatu Puma RX  cocok untuk kamu hangout dan untuk lari kemana saja, dengan sole yang empuk bikin kaki kamu ngga pegel', '[\"/image/1613396061783-image.jpg \",\"/image/1613396061788-image.jpg \",\"/image/1613396061789-image.webp \"]', 13, 3, '2021-02-15 20:34:21', '2021-02-16 23:29:13'),
 (88, 'Tshirt Plain Slevee', 9, 1, 65000, 100, 'Ketika kaos yang terlalu polos sudah biasa, menjadi berbedalah ketika ada motif garis abstrak tetapi masih sangat bagus dilihat.', '[\"/image/1613396279344-image.webp \",\"/image/1613396279349-image.webp \",\"/image/1613396279351-image.webp \"]', 13, 3, '2021-02-15 20:37:59', '2021-02-16 23:29:13'),
-(89, 'Coach Jacket Army', 5, 1, 410000, 100, 'Jacket Bomber yang fenomenal di Livehaf kini kembali lagi. Fuzy Terry Bomber Jacket akan membuat kamu adem, tapi juga gak bikin kedinginan. Bahannya lembut dan tidak berbulu karena terbuat dari katun Terry. Cocok banget dipakai untuk bergaya atau melindungi diri ketika naik motor.', '[\"/image/1613396416914-image.webp \",\"/image/1613396416917-image.webp \",\"/image/1613396416918-image.webp \"]', 13, 3, '2021-02-15 20:40:16', '2021-02-16 23:29:13'),
-(90, 'Short Black Chino', 4, 1, 75000, 100, 'TIB Chino Short Pants dibuat untuk kegiatan sehari-hari kamu agar kamu tetap merasa nyaman di segala aktivitas. Bahannya stretch dan lembut, serta kantong belakang yang dibuat tanpa kancing membuat Chino ini sangat nyaman ketika duduk, jadi tidak ada lagi keluhan kedudukkan kancing ataupun kancing nyangkut di bangku. Tenang, seleting-nya juga menggunakan YKK agar dapat terkunci dengan sempurna. Selain itu pinggangnya juga dibuat stretch agar ketika habis makan dan perut membesar sedikit, masih aman. Untuk pencucian pertama sampai ketiga kali lebih baik dipisah, agar tidak luntur mengenai pakaian anda yang lain.', '[\"/image/1613396572303-image.webp \",\"/image/1613396572305-image.webp \",\"/image/1613396572306-image.webp \"]', 13, 3, '2021-02-15 20:42:52', '2021-02-16 23:29:13'),
-(91, 'Short Black Chino', 4, 1, 75000, 100, 'Kami menyadari bahwa hampir semua orang Indonesia yang bekerja membutuhkan celana chino yang lembut, nyaman, dan juga stretch agar dapat melakukan aktifitas sesuka hati dan tidak menganggu mobilitas.Kantong belakang yang dibuat tanpa kancing juga membuat Chino ini sangat nyaman ketika duduk, jadi tidak ada lagi keluhan kedudukkan kancing ataupun kancing nyangkut di bangku.Tenang, seleting-nya juga menggunakan YKK agar dapat terkunci dengan sempurna. Selain itu pinggangnya juga dibuat stretch agar ketika habis makan dan perut membesar sedikit, masih aman. Bahannya terbuat dari twill stretch yang sangat lembut dan halus banget, berbeda dengan versi sebelumnya yang sedikit kasar. Untuk pencucian pertama sampai ketiga kali lebih baik dipisah, agar tidak luntur mengenai pakaian anda yang lain.', '[\"/image/1613396685331-image.jpg \",\"/image/1613396685334-image.jpg \",\"/image/1613396685337-image.webp \"]', 13, 3, '2021-02-15 20:44:45', '2021-02-16 23:29:13'),
-(92, 'Pant Long Black Chino', 4, 1, 75000, 100, 'Kami menyadari bahwa hampir semua orang Indonesia yang bekerja membutuhkan celana chino yang lembut, nyaman, dan juga stretch agar dapat melakukan aktifitas sesuka hati dan tidak menganggu mobilitas.Kantong belakang yang dibuat tanpa kancing juga membuat Chino ini sangat nyaman ketika duduk, jadi tidak ada lagi keluhan kedudukkan kancing ataupun kancing nyangkut di bangku.Tenang, seleting-nya juga menggunakan YKK agar dapat terkunci dengan sempurna. Selain itu pinggangnya juga dibuat stretch agar ketika habis makan dan perut membesar sedikit, masih aman. Bahannya terbuat dari twill stretch yang sangat lembut dan halus banget, berbeda dengan versi sebelumnya yang sedikit kasar. Untuk pencucian pertama sampai ketiga kali lebih baik dipisah, agar tidak luntur mengenai pakaian anda yang lain.', '[\"/image/1613396707631-image.jpg \",\"/image/1613396707634-image.jpg \",\"/image/1613396707639-image.webp \"]', 13, 3, '2021-02-15 20:45:07', '2021-02-16 23:29:13'),
-(93, 'Tshirt Astro Plain', 9, 0, 75000, 70, 'Produk ini bisa dipakai Pria dan Wanita. Untuk Wanita direkomendasikan size S atau bisa diukur terlebih dahulu sesuai dengan size chart yang tersedia. Kenapa kita masih menjual kaos polos yang sebenarnya anda bisa dapatkan dipasaran? Jangan salah, kaos polos dari Livehaf ini bahan nya bener-bener mahal, akibatnya kualitasnya sangat lembut banget dan soft abis, jika kalian sudah merasakan adem & lembutnya kaos polos dari Livehaf, pasti tidak mau memakai kaos polos brand lain lagi', '[\"/image/1613396938203-image.webp \",\"/image/1613396938207-image.webp \",\"/image/1613396938210-image.webp \"]', 13, 0, '2021-02-15 20:48:58', '2021-02-16 23:29:13');
+(89, 'Coach Jacket Army', 13, 1, 410000, 100, 'Jacket Bomber yang fenomenal di Livehaf kini kembali lagi. Fuzy Terry Bomber Jacket akan membuat kamu adem, tapi juga gak bikin kedinginan. Bahannya lembut dan tidak berbulu karena terbuat dari katun Terry. Cocok banget dipakai untuk bergaya atau melindungi diri ketika naik motor.', '[\"/image/1613573009912-image.webp\",\"/image/1613573009919-image.webp\",\"/image/1613573009930-image.webp\"]', 13, 3, '2021-02-15 20:40:16', '2021-02-17 21:43:29'),
+(95, 'Short Chiangi LX', 0, 1, 97000, 70, 'Short Chiangi LX nyaman diapakai sekarang', '[\"/image/1613892829101-image.webp\",\"/image/1613892829104-image.webp\",\"/image/1613892829106-image.jpg\"]', 13, 2, '2021-02-21 14:33:49', '2021-02-21 14:33:49');
 
 -- --------------------------------------------------------
 
@@ -411,13 +454,8 @@ INSERT INTO `product_colors` (`id`, `product_id`, `color_id`) VALUES
 (21, 72, 2),
 (22, 73, 1),
 (23, 73, 2),
-(24, 75, 3),
-(25, 75, 1),
 (26, 76, 1),
 (27, 76, 3),
-(28, 77, 4),
-(29, 77, 3),
-(30, 77, 2),
 (37, 80, 4),
 (38, 80, 3),
 (39, 80, 2),
@@ -426,12 +464,6 @@ INSERT INTO `product_colors` (`id`, `product_id`, `color_id`) VALUES
 (42, 81, 3),
 (43, 82, 1),
 (44, 82, 4),
-(45, 83, 1),
-(46, 83, 3),
-(47, 83, 4),
-(48, 84, 1),
-(49, 84, 3),
-(50, 84, 4),
 (51, 85, 1),
 (52, 85, 4),
 (53, 86, 4),
@@ -442,16 +474,17 @@ INSERT INTO `product_colors` (`id`, `product_id`, `color_id`) VALUES
 (58, 88, 1),
 (59, 88, 2),
 (60, 88, 3),
-(61, 89, 3),
-(62, 90, 3),
-(63, 90, 4),
-(64, 91, 3),
-(65, 91, 4),
-(66, 92, 3),
-(67, 92, 4),
-(68, 93, 1),
-(69, 93, 2),
-(70, 93, 4);
+(82, 89, 3),
+(83, 89, 4),
+(84, 77, 1),
+(85, 77, 3),
+(86, 77, 4),
+(87, 83, 1),
+(88, 83, 2),
+(89, 83, 4),
+(105, 95, 2),
+(106, 95, 3),
+(107, 95, 4);
 
 -- --------------------------------------------------------
 
@@ -495,13 +528,8 @@ INSERT INTO `product_sizes` (`id`, `product_id`, `size_id`) VALUES
 (24, 72, 6),
 (25, 73, 1),
 (26, 73, 2),
-(27, 75, 3),
-(28, 75, 4),
 (29, 76, 2),
 (30, 76, 4),
-(31, 77, 9),
-(32, 77, 10),
-(33, 77, 12),
 (40, 80, 2),
 (41, 80, 3),
 (42, 80, 4),
@@ -511,12 +539,6 @@ INSERT INTO `product_sizes` (`id`, `product_id`, `size_id`) VALUES
 (46, 82, 3),
 (47, 82, 4),
 (48, 82, 5),
-(49, 83, 2),
-(50, 83, 3),
-(51, 83, 4),
-(52, 84, 2),
-(53, 84, 3),
-(54, 84, 6),
 (55, 85, 2),
 (56, 85, 4),
 (57, 85, 6),
@@ -527,21 +549,17 @@ INSERT INTO `product_sizes` (`id`, `product_id`, `size_id`) VALUES
 (62, 88, 1),
 (63, 88, 2),
 (64, 88, 3),
-(65, 89, 3),
-(66, 89, 5),
-(67, 89, 6),
-(68, 90, 3),
-(69, 90, 4),
-(70, 90, 5),
-(71, 91, 3),
-(72, 91, 4),
-(73, 91, 5),
-(74, 92, 3),
-(75, 92, 4),
-(76, 92, 5),
-(77, 93, 4),
-(78, 93, 5),
-(79, 93, 6);
+(88, 89, 3),
+(89, 89, 4),
+(90, 77, 10),
+(91, 77, 11),
+(92, 77, 12),
+(93, 83, 3),
+(94, 83, 4),
+(95, 83, 5),
+(114, 95, 2),
+(115, 95, 3),
+(116, 95, 4);
 
 -- --------------------------------------------------------
 
@@ -577,7 +595,16 @@ INSERT INTO `ratings` (`id`, `product_id`, `rating`) VALUES
 (99, 90, 5),
 (100, 91, 2),
 (101, 92, 2),
-(102, 93, 4);
+(102, 93, 4),
+(103, 87, 4),
+(104, 79, 4),
+(105, 85, 4),
+(106, 86, 4),
+(107, 76, 4),
+(108, 96, 5),
+(109, 97, 3),
+(110, 88, 4),
+(111, 89, 4);
 
 -- --------------------------------------------------------
 
@@ -604,7 +631,16 @@ INSERT INTO `reviews` (`id`, `product_id`, `user_id`, `review`) VALUES
 (5, 31, 9, 'Barangnya keren, sesuai pesanan'),
 (6, 35, 9, 'Barangnya keren, sesuai pesanan'),
 (7, 72, 9, 'Barangnya keren, sesuai pesanan'),
-(8, 71, 9, 'Barangnya keren, sesuai pesanan');
+(8, 71, 9, 'Barangnya keren, sesuai pesanan'),
+(9, 87, 14, 'Emang mantap sepatu Puma RX nya, bisa lari dari kenyataan juga y=ternyata'),
+(10, 79, 14, 'Mantap jiwa sepatu ini, i like it'),
+(11, 85, 14, 'Keren bajunya gan, bikin makin ganteng.. '),
+(12, 86, 14, ''),
+(13, 76, 14, 'Jackets nya nyaman dipakai.. '),
+(14, 96, 14, 'Wow, insole sepatunya empuk. Keren abiis.. '),
+(15, 97, 14, 'Lumayan lah rasanya mintnya.. '),
+(16, 88, 14, 'Keren'),
+(17, 89, 14, 'Good jacket');
 
 -- --------------------------------------------------------
 
@@ -739,7 +775,19 @@ INSERT INTO `token_whitelist` (`id`, `token`) VALUES
 (84, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjEzMzI0NTM5fQ.G0Kpe9bZIpp43hmXqLS42-bhJRze0vuktGL2UnDwJp0'),
 (86, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjEzMzc0NDQ1fQ.x-ruNCIxhqlawH25MEy5c0s8SjH4WneMp9WLN9lTMRo'),
 (88, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjEzMzc1NjM2fQ.koM0xP4XNs7FE1_UWrLLRJHy3L1x5aATAnVuj5Cs_2A'),
-(99, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjEzNDU3OTg1fQ.avKd6iteu1-vqD0DFOzP9ePJiftv6GYnW9CcXH-o--c');
+(99, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjEzNDU3OTg1fQ.avKd6iteu1-vqD0DFOzP9ePJiftv6GYnW9CcXH-o--c'),
+(104, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjEzNTY2NTgzfQ.7AVUUmTMpo1QmBN_RolINmPZoJOL1vFbZsE1Op2rpoo'),
+(107, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjEzNTg3OTI2fQ.UdwapgkWU4C9Kwu9BOvOktmH4UDoOc2b5ri6Y4sVqUw'),
+(108, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjEzNjUzNTUwfQ.RKzbhvGagSNLeoHak7VvSYTJ-98KwPDQ0OjsgQGH0hc'),
+(109, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjEzNzI1NTg0fQ.qWHpj10pJDY8VHpIlaQGoMDe0XZp1Cx2PaInXt5IkLU'),
+(116, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjEzODQwNzM4fQ.wgmPkf7lX3XlrnQ5H-UHUMJyMaZq6gKNKRwJhbFEDnU'),
+(117, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjEzODQ1MzE0fQ.pFE9rqmwKjwzF1V8TKFDG57gNwmbMRwzlyl6ia61Zgw'),
+(118, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjEzOTI3OTAyfQ.R2XbHI68W_94picCVDnbbkLOTg3KtA4Hp_9Hl0EMVt8'),
+(132, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjE0MDIyNDY3fQ.vvDXLyjvCAzf4zsTPC_maz_ITapOsxaGYniwcAgw7B0'),
+(133, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjE0MDIyODg5fQ.8C_G_ed4iY9YSpB97HRC_fxBRbd_Qowv-fVcr7N204Y'),
+(134, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjE0MTY0Nzc5fQ.uR8uTzk0r6xQXsCovfdzh0n3wc3Wr2OipEvvheoEbJQ'),
+(142, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MiwiaWQiOjEzLCJlbWFpbCI6Im1udXJzZXB0aWFuMjVAZ21haWwuY29tIiwiaWF0IjoxNjE0MjkxODEzfQ.CikCA0vlgqv4XGSlFRuqhNSBGuxR-8oH1NiYNpk3P_M'),
+(147, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbF9pZCI6MSwiaWQiOjE0LCJlbWFpbCI6InZzZXB0MTdAZ21haWwuY29tIiwiaWF0IjoxNjE0MzIxMzI2fQ.sV9Z36WQFLj5thruHCieOwZ92U6-MwEb7DxxaP1Waow');
 
 -- --------------------------------------------------------
 
@@ -762,7 +810,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `password`, `level_id`) VALUES
 (13, 'sept_seller', 'Septian', 'mnurseptian25@gmail.com', '$2b$10$TbZUzF9UxsT1AtPIejmeJuMMSLKP.Y9P3eCe41rlTampsKxfDD4tK', 2),
-(14, 'Bambank', 'Bambank Khan', 'vsept17@gmail.com', '$2b$10$5n3mp/nPtfCqJX.oJowYe.aKDA3P87yttc/CSSne17S/KtngT5rw.', 1);
+(14, 'Bambank', 'Bambank Khan', 'vsept17@gmail.com', '$2b$05$PY1thVY0LDctRWaV2zoA5O6dMN4gdkrofVDo1dkfMUENwmXTFLqu2', 1);
 
 --
 -- Indexes for dumped tables
@@ -779,6 +827,12 @@ ALTER TABLE `address_customer`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_categories`);
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `colors`
@@ -893,12 +947,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address_customer`
 --
 ALTER TABLE `address_customer`
-  MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id_categories` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `colors`
 --
@@ -923,7 +982,7 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `otp_reset`
 --
@@ -933,27 +992,27 @@ ALTER TABLE `otp_reset`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT for table `product_colors`
 --
 ALTER TABLE `product_colors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 --
 -- AUTO_INCREMENT for table `product_sizes`
 --
 ALTER TABLE `product_sizes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 --
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `seller_detail`
 --
@@ -978,7 +1037,7 @@ ALTER TABLE `status_product`
 -- AUTO_INCREMENT for table `token_whitelist`
 --
 ALTER TABLE `token_whitelist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 --
 -- AUTO_INCREMENT for table `users`
 --
